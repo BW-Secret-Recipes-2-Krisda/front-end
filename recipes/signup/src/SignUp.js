@@ -12,7 +12,7 @@ const SignUp = () => {
 
     return (
         <div style={{ background: 'rgb(242, 239, 199)' }}>
-            <Navbar style={{ background: 'rgb(157, 107, 83)', color: 'white' }} light>
+            <Navbar style={{ background: 'rgb(130, 65, 1)', color: 'white' }} light>
                 <NavbarBrand href="/" style={{ color: 'white' }}>
                     <h1>
                         Secret Family Recipes Sign Up
@@ -60,7 +60,7 @@ const SignUp = () => {
                         type='password'
                         name='password' />
                 </FormGroup>
-                <div style={{ width: '30%', margin: '0 auto', border: '2px ridge rgb(157, 107, 83)', background: 'rgb(195, 142, 112)', color: 'white' }}>
+                <div style={{ width: '30%', margin: '0 auto', border: '2px ridge rgb(130, 65, 1)', background: 'rgb(158, 79, 2)', color: 'white' }}>
                     <h5>Do you want your recipes to be searchable for others?</h5>
                     <FormGroup check>
                         <label check>
@@ -81,7 +81,7 @@ const SignUp = () => {
                     </label>
                     </FormGroup>
                 </div>
-                <Button style={{ color: 'white', background: 'rgb(195, 142, 112)', border: '2px ridge rgb(157, 107, 83)', margin: '2%' }}>Submit</Button>
+                <Button style={{ color: 'white', background: 'rgb(158, 79, 2)', border: '2px ridge rgb(130, 65, 1)', margin: '2%' }}>Submit</Button>
             </Form>
         </div>
     )
