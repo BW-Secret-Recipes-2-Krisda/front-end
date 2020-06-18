@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
+import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
 import axios from 'axios';
 import * as yup from 'yup';
@@ -11,16 +11,20 @@ const SignUp = () => {
 
     return (
         <>
-            <Navbar color="faded" light>
-                <NavbarBrand href="/" className="mr-auto"><h1>Secret Family Recipes</h1></NavbarBrand>
-                <NavbarToggler onClick={toggleNavbar} className="mr-2" />
+            <Navbar style={{ background: 'rgb(203, 153, 126)', color: 'white' }} light>
+                <NavbarBrand href="/" style={{ color: 'white' }}><h1>Secret Family Recipes</h1></NavbarBrand>
+                <NavbarToggler onClick={toggleNavbar} className='mr-2' style={{ background: 'white' }} />
                 <Collapse isOpen={!collapsed} navbar>
                     <Nav navbar>
-                        <NavItem>
-                            <NavLink href="/components/">Components</NavLink>
+                        <NavItem >
+                            <NavLink href="" style={{ color: 'white', fontWeight: 'bold' }}>
+                                Sign In
+                            </NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
+                            <NavLink href="" style={{ color: 'white', fontWeight: 'bold' }}>
+                                Search Recipes
+                            </NavLink>
                         </NavItem>
                     </Nav>
                 </Collapse>
