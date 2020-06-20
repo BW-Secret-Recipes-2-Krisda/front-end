@@ -8,7 +8,6 @@ import MarketingPage from '../src/MarketingPage.png';
 
 
 const SignUp = () => {
-    const [errors, setErrors] = useState('');
     const [collapsed, setCollapsed] = useState(true);
     const [post, setPost] = useState([]);
     const [serverError, setServerError] = useState('');
@@ -16,7 +15,6 @@ const SignUp = () => {
         name: '',
         username: '',
         password: '',
-        private: true
     });
     const toggleNavbar = () => setCollapsed(!collapsed);
     const onInputChange = (e) => {
@@ -25,48 +23,29 @@ const SignUp = () => {
             [e.target.name]: e.target.value
         });
     };
-    const handlepreferences = (e) => {
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.checked
-        });
-    };
+    // const handlepreferences = (e) => {
+    //     setFormData({
+    //         ...formData,
+    //         [e.target.name]: e.target.checked
+    //     });
+    // };
 
     const signupSchema = yup.object().shape({
         name: yup.string().required('Please enter your legal name'),
         username: yup.string().required('You will need this to sign into your account'),
-        password: yup.string().required('Please enter your password').matches(
-            "^(?=.*[A-Za-z])(?=.*d){8,}$",
-            "Must Contain 8 Characters, One Uppercase, One Lowercase, and one Number"
-        ),
-        private: yup.boolean().oneOf[true]
+        password: yup.string().required('Please enter your password').min(9)
 
     });
 
-    const validateChange = e => {
-        yup
-            .reach(signupSchema, e.target.name)
-            .validate(e.target.value)
-            .then(valid => {
-                setErrors({
-                    ...errors,
-                    [e.target.name]: ""
-                });
-            })
-            .catch(err => {
-                console.log('from catch', err)
-                setErrors({
-                    ...errors,
-                    [e.target.name]: err.errors[0]
 
-                });
-            });
-    };
 
     useEffect(() => {
-        signupSchema.isValid(formData)
+        signupSchema.validate(formData)
             .then(valid => {
                 console.log('valid?', valid);
+            })
+            .catch(err => {
+                console.log(err.errors);
             })
     }, [formData]);
 
@@ -81,11 +60,11 @@ const SignUp = () => {
                     name: '',
                     username: '',
                     password: '',
-                    private: true
                 });
             })
             .catch(res => {
                 setServerError('Wait, What ?!');
+                console.log('from catch', res)
             });
     };
 
@@ -117,7 +96,7 @@ const SignUp = () => {
             <Form style={{ width: '80%', margin: '0 auto', textAlign: 'center' }} onSubmit={submitData} >
                 <FormGroup>
                     <legend>Name</legend>
-                    <input style={{ border: '2px ridge #9e5110' }}
+                    <Input style={{ border: '2px ridge #9e5110' }}
                         type='name'
                         name='name'
                         value={formData.name}
@@ -125,7 +104,7 @@ const SignUp = () => {
                 </FormGroup>
                 <FormGroup>
                     <legend>Choose a User Name</legend>
-                    <input style={{ border: '2px ridge #9e5110' }}
+                    <Input style={{ border: '2px ridge #9e5110' }}
                         type='text'
                         autoComplete='username'
                         name='username'
@@ -134,14 +113,14 @@ const SignUp = () => {
                 </FormGroup>
                 <FormGroup>
                     <legend>Choose a Password</legend>
-                    <input style={{ border: '2px ridge #9e5110' }}
+                    <Input style={{ border: '2px ridge #9e5110' }}
                         type='password'
                         autoComplete='new-password'
                         name='password'
                         value={formData.password}
                         onChange={onInputChange} />
                 </FormGroup>
-                <div style={{ width: '30%', margin: '0 auto', border: '2px ridge #9e5110', background: '#b17537', color: 'white' }}>
+                {/* <div style={{ width: '30%', margin: '0 auto', border: '2px ridge #9e5110', background: '#b17537', color: 'white' }}>
                     <h5>Uncheck this box if you want your recipes to be searchable for others</h5>
                     <FormGroup tag='fieldset'>
                         <FormGroup check>
@@ -155,7 +134,7 @@ const SignUp = () => {
                     </label>
                         </FormGroup>
                     </FormGroup>
-                </div>
+                </div> */}
                 <Button style={{ color: 'white', background: '#b17537', border: '2px ridge #9e5110', margin: '2%' }}>Submit</Button>
             </Form>
         </div>
