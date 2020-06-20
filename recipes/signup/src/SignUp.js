@@ -1,18 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
-import MarketingPage from '../src/MarketingPage.png';
-
 import axios from 'axios';
 import * as yup from 'yup';
 
+import MarketingPage from '../src/MarketingPage.png';
+
+
+
 const SignUp = () => {
+    const [errors, setErrors] = useState('');
     const [collapsed, setCollapsed] = useState(true);
+    const [post, setPost] = useState([]);
+    const [serverError, setServerError] = useState('');
     const [formData, setFormData] = useState({
         name: '',
         username: '',
         password: '',
-        private: '',
-        public: ''
+        private: true
     });
     const toggleNavbar = () => setCollapsed(!collapsed);
     const onInputChange = (e) => {
@@ -26,6 +30,63 @@ const SignUp = () => {
             ...formData,
             [e.target.name]: e.target.checked
         });
+    };
+
+    const signupSchema = yup.object().shape({
+        name: yup.string().required('Please enter your legal name'),
+        username: yup.string().required('You will need this to sign into your account'),
+        password: yup.string().required('Please enter your password').matches(
+            "^(?=.*[A-Za-z])(?=.*d){8,}$",
+            "Must Contain 8 Characters, One Uppercase, One Lowercase, and one Number"
+        ),
+        private: yup.boolean().oneOf[true]
+
+    });
+
+    const validateChange = e => {
+        yup
+            .reach(signupSchema, e.target.name)
+            .validate(e.target.value)
+            .then(valid => {
+                setErrors({
+                    ...errors,
+                    [e.target.name]: ""
+                });
+            })
+            .catch(err => {
+                console.log('from catch', err)
+                setErrors({
+                    ...errors,
+                    [e.target.name]: err.errors[0]
+
+                });
+            });
+    };
+
+    useEffect(() => {
+        signupSchema.isValid(formData)
+            .then(valid => {
+                console.log('valid?', valid);
+            })
+    }, [formData]);
+
+    const submitData = e => {
+        e.preventDefault();
+        axios.post('https://secret-recipes-app.herokuapp.com/api/auth/register', formData)
+            .then(res => {
+                setPost(res.data);
+                console.log('API success!');
+                setServerError(null);
+                setFormData({
+                    name: '',
+                    username: '',
+                    password: '',
+                    private: true
+                });
+            })
+            .catch(res => {
+                setServerError('Wait, What ?!');
+            });
     };
 
     return (
@@ -53,7 +114,7 @@ const SignUp = () => {
                 </Collapse>
             </Navbar>
             <img style={{ width: '100%', height: '40vh' }} src={MarketingPage} alt='' />
-            <Form style={{ width: '80%', margin: '0 auto', textAlign: 'center' }}>
+            <Form style={{ width: '80%', margin: '0 auto', textAlign: 'center' }} onSubmit={submitData} >
                 <FormGroup>
                     <legend>Name</legend>
                     <input style={{ border: '2px ridge #9e5110' }}
@@ -79,26 +140,16 @@ const SignUp = () => {
                         onChange={onInputChange} />
                 </FormGroup>
                 <div style={{ width: '30%', margin: '0 auto', border: '2px ridge #9e5110', background: '#b17537', color: 'white' }}>
-                    <h5>Do you want your recipes to be searchable for others?</h5>
+                    <h5>Uncheck this box if you want your recipes to be searchable for others</h5>
                     <FormGroup tag='fieldset'>
                         <FormGroup check>
                             <label check>
-                                <input
-                                    type='radio'
+                                <Input
+                                    type='checkbox'
                                     name='private'
-                                    value='private'
-                                    onChange={onInputChange} />
-                        Private(not others)
-                    </label>
-                        </FormGroup>
-                        <FormGroup check>
-                            <label check>
-                                <input
-                                    type='radio'
-                                    name='public'
-                                    value='public'
-                                    onChange={onInputChange} />
-                            Public(all others)
+                                    checked={formData.private}
+                                    onChange={handlepreferences} />
+                        Private
                     </label>
                         </FormGroup>
                     </FormGroup>
