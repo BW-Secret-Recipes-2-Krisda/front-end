@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Form, FormGroup, Label, Input } from 'reactstrap';
 
-import MarketingPage from '../src/MarketingPage.png';
+import VintageRecipeCardwithTab from '../src/VintageRecipeCardwithTab.png';
 
 const NewRecipes = () => {
     const [collapsed, setCollapsed] = useState(true);
@@ -13,6 +13,7 @@ const NewRecipes = () => {
     return (
         <div>
             <Navbar style={{ background: '#b17537' }} light>
+                <img style={{ width: '10%' }} src={VintageRecipeCardwithTab} alt='' />
                 <NavbarBrand href="/" className="mr-auto"><h1>Add A New Recipe</h1></NavbarBrand>
                 <NavbarToggler onClick={toggleNavbar} style={{ background: '#edcbd4' }} />
                 <Collapse isOpen={!collapsed} navbar>
