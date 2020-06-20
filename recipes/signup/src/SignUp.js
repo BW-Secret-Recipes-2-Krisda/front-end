@@ -127,6 +127,7 @@ const SignUp = () => {
                     <legend>Choose a User Name</legend>
                     <input style={{ border: '2px ridge #9e5110' }}
                         type='text'
+                        autoComplete='username'
                         name='username'
                         value={formData.username}
                         onChange={onInputChange} />
@@ -135,6 +136,7 @@ const SignUp = () => {
                     <legend>Choose a Password</legend>
                     <input style={{ border: '2px ridge #9e5110' }}
                         type='password'
+                        autoComplete='new-password'
                         name='password'
                         value={formData.password}
                         onChange={onInputChange} />
