@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 import SignUp from './SignUp';
+import NewRecipes from './NewRecipes';
 // import './App.css';
 
 function App() {
@@ -11,6 +12,9 @@ function App() {
       </Route>
       <Route path='/signup'>
         <SignUp />
+      </Route>
+      <Route path='/newrecipeform'>
+        <NewRecipes />
       </Route>
     </div>
   );
