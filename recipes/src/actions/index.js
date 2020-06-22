@@ -7,7 +7,7 @@ export const SIGN_UP_FAILURE = "SIGN_UP_FAILURE";
 export const signUp = (credentials, history) => dispatch => {
   const creds = { username: credentials.username, password: credentials.password }
   dispatch({ type: SIGN_UP_START });
-  axios
+  axiosWithAuth
     .post(
       '/auth/register',
       creds
@@ -34,7 +34,7 @@ export const LOG_IN_FAILURE = "LOG_IN_FAILURE";
 
 export const logIn = (credentials, history) => dispatch => {
   dispatch({ type: LOG_IN_START });
-  axios
+  axiosWithAuth
     .post(
         '/auth/login',
       credentials

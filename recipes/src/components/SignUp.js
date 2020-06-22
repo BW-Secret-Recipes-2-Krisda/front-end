@@ -2,12 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, Button, Form, FormGroup, Input } from 'reactstrap';
 import axios from 'axios';
 import * as yup from 'yup';
-
 import MarketingPage from './MarketingPage.png';
+
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import { signUp } from "../actions";
 
 
 
 const SignUp = () => {
+   
     const [collapsed, setCollapsed] = useState(true);
     const [post, setPost] = useState([]);
     const [serverError, setServerError] = useState('');
@@ -29,6 +33,20 @@ const SignUp = () => {
     //         [e.target.name]: e.target.checked
     //     });
     // };
+
+
+     const signUp = e => {
+        e.preventDefault();
+        const newUser = {
+            username: this.state.username,
+            password: this.state.password1
+        };
+        this.props.signUp(newUser, this.props.history);
+        this.setState({
+            username: "",
+            password1: ""
+        });
+    };
 
     const signupSchema = yup.object().shape({
         name: yup.string().required('Please enter your legal name'),
@@ -65,6 +83,7 @@ const SignUp = () => {
                 console.log('from catch', res)
             });
     };
+    
 
     return (
         <div style={{ background: '#ebcd4' }}>
@@ -119,6 +138,7 @@ const SignUp = () => {
                         value={formData.password}
                         onChange={onInputChange} />
                 </FormGroup>
+                
                 {/* <div style={{ width: '30%', margin: '0 auto', border: '2px ridge #9e5110', background: '#b17537', color: 'white' }}>
                     <h5>Uncheck this box if you want your recipes to be searchable for others</h5>
                     <FormGroup tag='fieldset'>
@@ -142,4 +162,13 @@ const SignUp = () => {
     )
 };
 
-export default SignUp;
+const mapStateToProps = state => ({
+  signingUp: state.signingUp
+});
+
+export default withRouter(
+    connect(
+        mapStateToProps,
+        { signUp })
+    (SignUp)
+);
