@@ -8,11 +8,11 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import { Provider } from 'react-redux';
-import Reducer from './reducer';
+import rootReducer from './reducer';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
-  Reducer,
+  rootReducer,
   composeEnhancers(applyMiddleware(thunk, logger))
 );
 

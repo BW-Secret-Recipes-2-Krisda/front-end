@@ -1,10 +1,64 @@
 @media all and (min-width: 480px) {
+    html{
+      background-color: #d29c60 ;
+    }
+    
+    #root{
+      background-color: #d29c60;
+    }
+
     .Login {
-      padding: 60px 0;
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      padding-top: 100px;
+      text-align: center;
+      padding: 10px 0;
+      max-width: 800px;
     }
   
-    .Login form {
-      margin: 0 auto;
-      max-width: 320px;
+    div {
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      padding-top: 0px;
+      text-align: center;
+    }
+
+    h1{
+      font-size: 3rem;
+      color: white;
+      text-transform: uppercase;
+      word-spacing: .3em;
+      margin-bottom: 1rem;
+      position: relative;
+      text-shadow: 2px 2px #000000;
+      cursor: pointer;
+      top: 0;
+      text-shadow: 0 0 4px #43260f;  color: transparent;
+      margin-left: 5px;
+    }
+    #FG{
+      font-size: 3rem;
+      color: #b17537;
+      text-transform: uppercase;
+      word-spacing: .3em;
+      margin-bottom: 1rem;
+      position: absolute;
+      cursor: pointer;
+      margin-top: 245px;
+    }
+    h1:hover{
+      border-color: #43260f;
+      color: #43260f;
+      text-shadow: 0 0 4px #ffffff;  color: transparent;
+    }
+    button {
+      align-self:center;
+      border: 2px solid #9e5110;
+    }
+    button:hover{
+          background: #110906;
+          color: #d29c60;
     }
   }
