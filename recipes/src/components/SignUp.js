@@ -3,7 +3,7 @@ import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, Bu
 import axios from 'axios';
 import * as yup from 'yup';
 
-import MarketingPage from '../src/MarketingPage.png';
+import MarketingPage from './MarketingPage.png';
 
 
 
@@ -36,8 +36,6 @@ const SignUp = () => {
         password: yup.string().required('Please enter your password').min(9)
 
     });
-
-
 
     useEffect(() => {
         signupSchema.validate(formData)
@@ -94,6 +92,7 @@ const SignUp = () => {
             </Navbar>
             <img style={{ width: '100%', height: '40vh' }} src={MarketingPage} alt='' />
             <Form style={{ width: '80%', margin: '0 auto', textAlign: 'center' }} onSubmit={submitData} >
+            {serverError ? <p className="error">{serverError}</p> : null}
                 <FormGroup>
                     <legend>Name</legend>
                     <Input style={{ border: '2px ridge #9e5110' }}
@@ -135,6 +134,8 @@ const SignUp = () => {
                         </FormGroup>
                     </FormGroup>
                 </div> */}
+
+                <pre>{JSON.stringify(post, null, 2)}</pre>
                 <Button style={{ color: 'white', background: '#b17537', border: '2px ridge #9e5110', margin: '2%' }}>Submit</Button>
             </Form>
         </div>
