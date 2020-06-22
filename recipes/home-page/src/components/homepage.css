@@ -1,0 +1,23 @@
+.homepage-container{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    margin:  b0%;
+    background-color: #d29c60 ;
+    width: 100%;
+}
+
+.searchbar-form {
+    margin: 2%;
+    width: 100%;
+    padding: 2%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.searchbar-form input {
+    margin-right: 2%;
+    margin-left: 2%;
+    width: 60%;
+}
