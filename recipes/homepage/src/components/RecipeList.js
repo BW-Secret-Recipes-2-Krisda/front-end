@@ -23,13 +23,11 @@ class RecipeList extends React.Component {
                 this.props.filteredRecipes.map(
                   recipe =>  <Recipe recipe = {recipe} 
                                      key={recipe.id} 
-                                     deleteRecipe={this.props.deleteRecipe} 
                                       selectRecipe={this.props.selectRecipe}/> ): 
                 this.props.recipes.map(
                   recipe => (
                     <Recipe recipe = {recipe} 
                             key={recipe.id} 
-                            deleteRecipe={this.props.deleteRecipe} 
                             selectRecipe={this.props.selectRecipe}/> 
                   ))}
       </RecipeContainer>

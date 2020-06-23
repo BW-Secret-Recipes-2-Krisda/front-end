@@ -2,7 +2,8 @@ import React from 'react';
 import './App.css';
 import { connect } from 'react-redux';
 import homepage from './components/homepage';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
+import PrivateRoute from './components/PrivateRoute';
 
 class App extends React.Component {
   
@@ -10,7 +11,7 @@ class App extends React.Component {
     return (
       <div className="main-container">
         <Router>
-          <Route exact path='/homepage' component={homepage} />
+          <PrivateRoute exact path='/homepage' component={homepage} />
         </Router>
       </div>
     );

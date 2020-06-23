@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import rootReducer from './reducer/reducer';
-import { Button } from 'react-bootstrap';
-import history from './components/history';
+//import { Button } from 'react-bootstrap';
+//import history from './components/history';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import { Provider } from 'react-redux';
@@ -12,18 +12,17 @@ import { createStore, applyMiddleware } from 'redux';
 import {BrowserRouter as Router} from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 
-
 const store = createStore(rootReducer, applyMiddleware(thunk,logger));
-function someFunc() {
-  history.push('/homepage')
-};
+//function someFunc() {
+//  history.push('/login')
+//};
+// <Button variant="btn btn-success" id="hideMe" onClick={someFunc()}></Button>
 
 ReactDOM.render(
   <Provider store={store}>
       <Router>
-          <App />
+            <App />
       </Router>
-      <Button variant="btn btn-success" id="hideMe" onClick={someFunc()}></Button>
   </Provider>, 
   document.getElementById('root')
 );

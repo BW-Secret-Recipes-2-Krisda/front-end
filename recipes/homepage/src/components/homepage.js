@@ -56,7 +56,6 @@ class homepage extends React.Component {
     this.props.history.push('/login');
   };
 
-
   render() {
 
     return (
@@ -75,10 +74,10 @@ class homepage extends React.Component {
           <button type="submit">Search</button>
         </form>
         
-        {this.props.fetchingRecipes ? <p>Searching...</p> : <RecipeList selectRecipe={this.selectRecipe}/>}
+        {this.props.fetchingRecipes ? <p>Searching...</p> : <RecipeList updateRecipe={this.updateRecipe} selectRecipe={this.selectRecipe}/>}
         
         <div>
-          <Button variant="btn btn-success" onClick={() => history.push('/addRecipe')}>Add Recipe</Button>
+          <Button variant="btn btn-success" onClick={() => history.push('/SavedRecipes')}>Add Recipe</Button>
           <button onClick={this.logoutButton}>Logout</button>
           <p />
         </div>
@@ -91,12 +90,12 @@ const mapStateToProps = state => ({
   recipes: state.recipes,
   fetchingRecipes: state.fetchingRecipes,
   selectedRecipe: state.selectedRecipe,
-  filteredRecipes: state.filteredRecipes
+  filteredRecipes: state.filteredRecipes,
 });
 
 export default
   connect(
     mapStateToProps,
-    {search, getRecipes, selectRecipe}
+    { search, getRecipes, selectRecipe }
   )(homepage);
 

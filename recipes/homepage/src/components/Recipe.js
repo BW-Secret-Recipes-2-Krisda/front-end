@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Button } from 'react-bootstrap';
+import history from './history';
 
 const RecipeCard = styled.div`
     width:30%;
@@ -57,8 +59,7 @@ const Recipe = props =>{
             <p>{props.recipe.category}</p>
             <h5>Image:</h5>
             <img alt="meaningful text" value={props.recipe.img_url} />
-            <button onClick = {() => props.deleteRecipe(props.recipe.id)}> Delete Recipe</button>
-            <button onClick={()=>props.selectRecipe(props.recipe)}>Update Recipe</button>
+            <Button variant="btn btn-success" onClick={() => history.push('/SavedRecipes')}>Update Recipe</Button>
         </RecipeCard>
     )
 }
