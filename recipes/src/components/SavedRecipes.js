@@ -12,6 +12,11 @@ import LogoGold from '../components/LogoGold.png';
 const SavedRecipes = () => {
     const [collapsed, setCollapsed] = useState(true);
     const [dropdownOpen, setDropdownOpen] = useState(false);
+    const [formData, setFormData] = useState({
+        category: '',
+        title: '',
+        description: '',
+    });
 
     const toggle = () => setDropdownOpen(prevState => !prevState);
 
@@ -20,8 +25,9 @@ const SavedRecipes = () => {
     useEffect(() => {
         Axios.get('https://secret-recipes-app.herokuapp.com/api/users/:id/recipes')
             .then(res => {
-                console.log('from saved recipes', res)
-            })
+                console.log('from saved recipes', res);
+                setFormData(res.data.results)
+            });
 
     }, []);
 
@@ -33,6 +39,7 @@ const SavedRecipes = () => {
                     <h1>
                         Secret Family Recipes Saved
                     </h1>
+                    <h2 style={{ marginLeft: '15%' }}>Welcome **username**</h2>
                 </NavbarBrand>
                 <NavbarToggler onClick={toggleNavbar} className='mr-2' style={{ background: '#ebcdb4' }} />
                 <Collapse isOpen={!collapsed} navbar>
