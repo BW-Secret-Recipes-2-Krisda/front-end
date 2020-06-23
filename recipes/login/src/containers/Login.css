@@ -44,9 +44,9 @@
       text-transform: uppercase;
       word-spacing: .3em;
       margin-bottom: 1rem;
-      position: absolute;
+      position: relative;
       cursor: pointer;
-      margin-top: 245px;
+      margin-top: -40px;
     }
     h1:hover{
       border-color: #43260f;

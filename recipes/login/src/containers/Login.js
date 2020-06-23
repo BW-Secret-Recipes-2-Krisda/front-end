@@ -26,13 +26,13 @@ class Login extends React.Component {
     e.preventDefault();
 
     this.props.login(this.state.credentials);
-    //this.props.history.push('/homepage');
+    this.props.history.push('/homepage');
   };
 
   render() {
     return (
       <div>
-        <img style={{ width: '75%', height: '25vh', 'border-radius': '5px',
+        <img style={{ width: '75%', height: '25vh', borderradius: '5px',
     border: '1px outset white' }} src={MarketingPage} alt='SFR' />
         <h1> Login </h1><h1 id="FG"> Login </h1>
         <form onSubmit={this.handleLogin} className='Login'>

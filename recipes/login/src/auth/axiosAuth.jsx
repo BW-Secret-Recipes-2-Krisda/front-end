@@ -5,7 +5,9 @@ export const axiosAuth = () => {
 
     return axios.create({
         headers: {
-            Authorization: token
+            'Content-Type' : 'application/json',
+            Accept : 'application/json',
+            Authorization : token          
         },
         baseURL: 'https://secret-recipes-app.herokuapp.com/api/auth/login'
     })
