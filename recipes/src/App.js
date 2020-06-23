@@ -2,6 +2,7 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import SignUp from './components/SignUp';
 import NewRecipes from './components/NewRecipes';
+import SavedRecipes from './components/SavedRecipes';
 // import './App.css';
 
 function App() {
@@ -15,6 +16,9 @@ function App() {
       </Route>
       <Route path='/newrecipeform'>
         <NewRecipes />
+      </Route>
+      <Route path='/savedrecipes'>
+        <SavedRecipes />
       </Route>
     </div>
   );

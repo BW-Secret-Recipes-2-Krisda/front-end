@@ -36,7 +36,11 @@ const NewRecipes = () => {
 
     const submitData = (e) => {
         e.preventDefault();
-        // Axios.post('')
+        // Axios.post('', formData)
+        // .then(res => {
+        //     window.location.href='/saved recipes'
+        // })
+
     }
     return (
         <div>
@@ -193,14 +197,14 @@ const NewRecipes = () => {
                     <FormGroup tag='fieldset'>
                         <legend>Uncheck the box below if you want this recipe to be searchable for the public</legend>
                         <FormGroup check>
-                            <label check>
+                            <Label check>
                                 <Input
                                     type='checkbox'
                                     name='private'
                                     checked={formData.checked}
                                     onChange={handlePrefrence} />
                         Private
-                    </label>
+                    </Label>
                         </FormGroup>
                     </FormGroup>
                 </div>
