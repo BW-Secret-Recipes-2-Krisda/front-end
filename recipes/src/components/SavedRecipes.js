@@ -7,7 +7,7 @@ import Axios from 'axios';
 
 import vintageRecipeCardwithTabBlanked from '../components/vintageRecipeCardwithTabBlanked.png';
 import MarketingPage from '../components/MarketingPage.png';
-import Logoreviz from '../components/Logoreviz.png';
+import LogoGold from '../components/LogoGold.png';
 
 const SavedRecipes = () => {
     const [collapsed, setCollapsed] = useState(true);
@@ -28,7 +28,7 @@ const SavedRecipes = () => {
     return (
         <>
             <Navbar style={{ background: '#b17537', color: '#ebcdb4' }} light>
-                <img style={{ width: '10%' }} src={Logoreviz} alt='' />
+                <img style={{ width: '10%' }} src={LogoGold} alt='' />
                 <NavbarBrand href="/" style={{ color: 'white' }}>
                     <h1>
                         Secret Family Recipes Saved

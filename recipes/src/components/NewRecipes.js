@@ -45,7 +45,7 @@ const NewRecipes = () => {
     return (
         <div>
             <Navbar style={{ background: '#b17537' }} light>
-                <img style={{ width: '10%' }} src={VintageRecipeCardwithTab} alt='' />
+                <img style={{ width: '10%', marginRight: '30%' }} src={VintageRecipeCardwithTab} alt='' />
                 <NavbarBrand href="/" className="mr-auto"><h1>Add A New Recipe</h1></NavbarBrand>
                 <NavbarToggler onClick={toggleNavbar} style={{ background: '#edcbd4' }} />
                 <Collapse isOpen={!collapsed} navbar>
