@@ -20,10 +20,10 @@ const SavedRecipes = () => {
     const toggleNavbar = () => setCollapsed(!collapsed);
 
     useEffect(() => {
-        Axios.get('https://secret-recipes-app.herokuapp.com/api/users/:id/recipes')
+        Axios.get('https://secret-recipes-app.herokuapp.com/api/recipes')
             .then(res => {
                 console.log('from saved recipes', res);
-                setFormData(res.data.results)
+                setFormData(res.data)
             });
 
     }, []);
@@ -68,7 +68,7 @@ const SavedRecipes = () => {
                             <CardLink style={{ color: '#ebcdb4', border: '1px ridge #110906 ' }} href="#">View</CardLink>
                             <CardLink style={{ color: '#ebcdb4', border: '1px ridge #110906 ' }} href="/newrecipeform">Edit</CardLink>
                         </CardBody>
-                    </Card>;
+                    </Card>
                 })}
 
             </div>
