@@ -8,15 +8,12 @@ import Axios from 'axios';
 import vintageRecipeCardwithTabBlanked from '../components/vintageRecipeCardwithTabBlanked.png';
 import MarketingPage from '../components/MarketingPage.png';
 import LogoGold from '../components/LogoGold.png';
+import { object } from 'yup';
 
 const SavedRecipes = () => {
     const [collapsed, setCollapsed] = useState(true);
     const [dropdownOpen, setDropdownOpen] = useState(false);
-    const [formData, setFormData] = useState({
-        category: '',
-        title: '',
-        description: '',
-    });
+    const [formData, setFormData] = useState([]);
 
     const toggle = () => setDropdownOpen(prevState => !prevState);
 
@@ -59,102 +56,21 @@ const SavedRecipes = () => {
             </Navbar>
             <img style={{ width: '100%', height: '40vh' }} src={MarketingPage} />
             <div style={{ display: 'flex', justifyContent: 'space-evenly', flexWrap: 'wrap' }}>
-                <Card style={{ width: '20%', margin: '2%', background: '#b17537', border: '1px ridge #110906 ' }}>
-                    <CardBody style={{ textAlign: 'center', color: '#ebcdb4' }}>
-                        <CardTitle ><h4>Recipe Title</h4></CardTitle>
-                        <CardSubtitle>Category</CardSubtitle>
-                    </CardBody>
-                    <img style={{ width: '30%', marginLeft: '35%' }} src={vintageRecipeCardwithTabBlanked} alt="Card image cap" />
-                    <CardBody style={{ textAlign: 'center', color: '#ebcdb4' }}>
-                        <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.The Description of recipe will go in this text</CardText>
-                        <CardLink style={{ color: '#ebcdb4', border: '1px ridge #110906 ' }} href="#">View</CardLink>
-                        <CardLink style={{ color: '#ebcdb4', border: '1px ridge #110906 ' }} href="/newrecipeform">Edit</CardLink>
-                    </CardBody>
-                </Card>
-                <Card style={{ width: '20%', margin: '2%', background: '#b17537', border: '1px ridge #110906 ' }}>
-                    <CardBody style={{ textAlign: 'center', color: '#ebcdb4' }}>
-                        <CardTitle ><h4>Recipe Title</h4></CardTitle>
-                        <CardSubtitle>Category</CardSubtitle>
-                    </CardBody>
-                    <img style={{ width: '30%', marginLeft: '35%' }} src={vintageRecipeCardwithTabBlanked} alt="Card image cap" />
-                    <CardBody style={{ textAlign: 'center', color: '#ebcdb4' }}>
-                        <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.The Description of recipe will go in this text</CardText>
-                        <CardLink style={{ color: '#ebcdb4', border: '1px ridge #110906 ' }} href="#">View</CardLink>
-                        <CardLink style={{ color: '#ebcdb4', border: '1px ridge #110906 ' }} href="/newrecipeform">Edit</CardLink>
-                    </CardBody>
-                </Card>
-                <Card style={{ width: '20%', margin: '2%', background: '#b17537', border: '1px ridge #110906 ' }}>
-                    <CardBody style={{ textAlign: 'center', color: '#ebcdb4' }}>
-                        <CardTitle ><h4>Recipe Title</h4></CardTitle>
-                        <CardSubtitle>Category</CardSubtitle>
-                    </CardBody>
-                    <img style={{ width: '30%', marginLeft: '35%' }} src={vintageRecipeCardwithTabBlanked} alt="Card image cap" />
-                    <CardBody style={{ textAlign: 'center', color: '#ebcdb4' }}>
-                        <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.The Description of recipe will go in this text</CardText>
-                        <CardLink style={{ color: '#ebcdb4', border: '1px ridge #110906 ' }} href="#">View</CardLink>
-                        <CardLink style={{ color: '#ebcdb4', border: '1px ridge #110906 ' }} href="/newrecipeform">Edit</CardLink>
-                    </CardBody>
-                </Card>
-                <Card style={{ width: '20%', margin: '2%', background: '#b17537', border: '1px ridge #110906 ' }}>
-                    <CardBody style={{ textAlign: 'center', color: '#ebcdb4' }}>
-                        <CardTitle ><h4>Recipe Title</h4></CardTitle>
-                        <CardSubtitle>Category</CardSubtitle>
-                    </CardBody>
-                    <img style={{ width: '30%', marginLeft: '35%' }} src={vintageRecipeCardwithTabBlanked} alt="Card image cap" />
-                    <CardBody style={{ textAlign: 'center', color: '#ebcdb4' }}>
-                        <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.The Description of recipe will go in this text</CardText>
-                        <CardLink style={{ color: '#ebcdb4', border: '1px ridge #110906 ' }} href="#">View</CardLink>
-                        <CardLink style={{ color: '#ebcdb4', border: '1px ridge #110906 ' }} href="/newrecipeform">Edit</CardLink>
-                    </CardBody>
-                </Card>
-                <Card style={{ width: '20%', margin: '2%', background: '#b17537', border: '1px ridge #110906 ' }}>
-                    <CardBody style={{ textAlign: 'center', color: '#ebcdb4' }}>
-                        <CardTitle ><h4>Recipe Title</h4></CardTitle>
-                        <CardSubtitle>Category</CardSubtitle>
-                    </CardBody>
-                    <img style={{ width: '30%', marginLeft: '35%' }} src={vintageRecipeCardwithTabBlanked} alt="Card image cap" />
-                    <CardBody style={{ textAlign: 'center', color: '#ebcdb4' }}>
-                        <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.The Description of recipe will go in this text</CardText>
-                        <CardLink style={{ color: '#ebcdb4', border: '1px ridge #110906 ' }} href="#">View</CardLink>
-                        <CardLink style={{ color: '#ebcdb4', border: '1px ridge #110906 ' }} href="/newrecipeform">Edit</CardLink>
-                    </CardBody>
-                </Card>
-                <Card style={{ width: '20%', margin: '2%', background: '#b17537', border: '1px ridge #110906 ' }}>
-                    <CardBody style={{ textAlign: 'center', color: '#ebcdb4' }}>
-                        <CardTitle ><h4>Recipe Title</h4></CardTitle>
-                        <CardSubtitle>Category</CardSubtitle>
-                    </CardBody>
-                    <img style={{ width: '30%', marginLeft: '35%' }} src={vintageRecipeCardwithTabBlanked} alt="Card image cap" />
-                    <CardBody style={{ textAlign: 'center', color: '#ebcdb4' }}>
-                        <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.The Description of recipe will go in this text</CardText>
-                        <CardLink style={{ color: '#ebcdb4', border: '1px ridge #110906 ' }} href="#">View</CardLink>
-                        <CardLink style={{ color: '#ebcdb4', border: '1px ridge #110906 ' }} href="/newrecipeform">Edit</CardLink>
-                    </CardBody>
-                </Card>
-                <Card style={{ width: '20%', margin: '2%', background: '#b17537', border: '1px ridge #110906 ' }}>
-                    <CardBody style={{ textAlign: 'center', color: '#ebcdb4' }}>
-                        <CardTitle ><h4>Recipe Title</h4></CardTitle>
-                        <CardSubtitle>Category</CardSubtitle>
-                    </CardBody>
-                    <img style={{ width: '30%', marginLeft: '35%' }} src={vintageRecipeCardwithTabBlanked} alt="Card image cap" />
-                    <CardBody style={{ textAlign: 'center', color: '#ebcdb4' }}>
-                        <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.The Description of recipe will go in this text</CardText>
-                        <CardLink style={{ color: '#ebcdb4', border: '1px ridge #110906 ' }} href="#">View</CardLink>
-                        <CardLink style={{ color: '#ebcdb4', border: '1px ridge #110906 ' }} href="/newrecipeform">Edit</CardLink>
-                    </CardBody>
-                </Card>
-                <Card style={{ width: '20%', margin: '2%', background: '#b17537', border: '1px ridge #110906 ' }}>
-                    <CardBody style={{ textAlign: 'center', color: '#ebcdb4' }}>
-                        <CardTitle ><h4>Recipe Title</h4></CardTitle>
-                        <CardSubtitle>Category</CardSubtitle>
-                    </CardBody>
-                    <img style={{ width: '30%', marginLeft: '35%' }} src={vintageRecipeCardwithTabBlanked} alt="Card image cap" />
-                    <CardBody style={{ textAlign: 'center', color: '#ebcdb4' }}>
-                        <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.The Description of recipe will go in this text</CardText>
-                        <CardLink style={{ color: '#ebcdb4', border: '1px ridge #110906 ' }} href="#">View</CardLink>
-                        <CardLink style={{ color: '#ebcdb4', border: '1px ridge #110906 ' }} href="/newrecipeform">Edit</CardLink>
-                    </CardBody>
-                </Card>
+                {formData.map(object => {
+                    return <Card style={{ width: '20%', margin: '2%', background: '#b17537', border: '1px ridge #110906 ' }}>
+                        <CardBody style={{ textAlign: 'center', color: '#ebcdb4' }}>
+                            <CardTitle ><h4>{object.title}</h4></CardTitle>
+                            <CardSubtitle>{object.category}</CardSubtitle>
+                        </CardBody>
+                        <img style={{ width: '30%', marginLeft: '35%' }} src={object.img_url === '' ? vintageRecipeCardwithTabBlanked : object.img_url} alt="" />
+                        <CardBody style={{ textAlign: 'center', color: '#ebcdb4' }}>
+                            <CardText>{object.ingredients}</CardText>
+                            <CardLink style={{ color: '#ebcdb4', border: '1px ridge #110906 ' }} href="#">View</CardLink>
+                            <CardLink style={{ color: '#ebcdb4', border: '1px ridge #110906 ' }} href="/newrecipeform">Edit</CardLink>
+                        </CardBody>
+                    </Card>;
+                })}
+
             </div>
 
         </>

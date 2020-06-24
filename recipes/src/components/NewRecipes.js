@@ -51,7 +51,7 @@ const NewRecipes = () => {
                 <Collapse isOpen={!collapsed} navbar>
                     <Nav navbar>
                         <NavItem>
-                            <NavLink style={{ color: 'black', fontWeight: 'bold' }} href="/savedRecipes">Home</NavLink>
+                            <NavLink style={{ color: 'black', fontWeight: 'bold' }} href="/savedRecipes">Saved Recipes</NavLink>
                         </NavItem>
                     </Nav>
                 </Collapse>
