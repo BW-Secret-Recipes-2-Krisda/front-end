@@ -23,7 +23,7 @@ const ViewRecipe = (title, category, ingredients, instructions, image) => {
                     <h1>
                         Secret Family Recipes
                     </h1>
-                    <h2 style={{ marginLeft: '23%' }}>{title}</h2>
+                    <h2 style={{ marginLeft: '23%' }}>**Recipe Title**</h2>
                 </NavbarBrand>
                 <NavbarToggler onClick={toggleNavbar} className='mr-2' style={{ background: '#ebcdb4' }} />
                 <Collapse isOpen={!collapsed} navbar>
@@ -48,30 +48,62 @@ const ViewRecipe = (title, category, ingredients, instructions, image) => {
             </Navbar>
             <img style={{ width: '100%', height: '40vh' }} src={MarketingPage} />
             <div>
-                <Card style={{ background: '#b17537', border: '1px ridge #110906', width: '80%', margin: '0 auto' }}>
-                    <CardImg style={{ width: '20%', margin: '0 auto' }} src={image} alt="Card image cap" />
-                    <CardBody style={{ textAlign: 'center', color: '#ebcdb4' }}>
-                        <CardTitle style={{ fontWeight: 'bold' }}>
-                            Ingredients
-                        </CardTitle>
-                        <CardText>{ingredients}
-                        </CardText>
-                        <CardTitle style={{ fontWeight: 'bold' }}>
-                            Directions
-                        </CardTitle>
-                        <CardText>{instructions}
-                        </CardText>
-                        <Link to='/newrecipeform'>
-                            <Button style={{ background: '#ebcdb4', color: 'black', fontWeight: 'bold', border: '2px solid #43260f' }}>
+                <Card style={{ margin: '3%' }}>
+                    <CardBody style={{
+                        width: '80%', height: '100vh', margin: '0 auto', display: 'flex', flexDirection: 'column', textAlign: 'center',
+                        backgroundImage: "radial-gradient( #b17537 50%,  #ebcdb4 90%)", backgroundPosition: '50%', border: '5px ridge #9e5110', color: '#ebcdb4', textShadow: '2px 2px #9e5110'
+                    }}>
+                        <div style={{ marginLeft: '0 auto' }}>
+                            <CardTitle>
+                                <h2>
+                                    Recipe Title
+                    </h2>
+                            </CardTitle>
+                            <CardSubtitle style={{ marginLeft: '3%' }}>
+                                <h4>
+                                    Category
+                        </h4>
+                            </CardSubtitle>
+                            <CardText>
+                                <h5 style={{ margin: '0' }}>
+                                    Ingredients
+                        </h5>
+                                <ol style={{ padding: '0' }}>
+                                    <ul style={{ padding: '0' }}>
+                                        Stuff
+                            </ul>
+                                    <ul style={{ padding: '0' }}>
+                                        Stuff
+                            </ul>
+                                    <ul style={{ padding: '0' }}>
+                                        Stuff
+                            </ul>
+                                    <ul style={{ padding: '0' }}>
+                                        Stuff
+                            </ul>
+
+                                </ol>
+
+                            </CardText>
+                            <CardText>
+                                <h5>
+                                    Directions
+                                </h5>
+                                <p>
+                                    ***STEP 1***<br />
+                                Preheat oven to 350 degrees F (175 degrees C).<br />
+
+                                ***STEP 2***<br />
+                                Cream together the butter, white sugar, and brown sugar until smooth. Beat in the eggs one at a time, then stir in the vanilla. Dissolve baking soda in hot water. Add to batter along with salt. Stir in flour, chocolate chips, and nuts. Drop by large spoonfuls onto ungreased pans.<br />
+
+                                ***STEP 3***<br />
+                                Bake for about 10 minutes in the preheated oven, or until edges are nicely browned.
+                                </p>
+                            </CardText>
+                            <Button style={{ background: '#9e5110', color: '#ebcdb4', border: '2px solid #ebcdb4' }} href='/newrecipes'>
                                 Edit
-                        </Button>
-                        </Link>
-                        <Button style={{ background: '#ebcdb4', color: 'black', fontWeight: 'bold', border: '2px solid #43260f' }}>
-                            Delete
-                        </Button>
-                        <Button style={{ background: '#ebcdb4', color: 'black', fontWeight: 'bold', border: '2px solid #43260f' }}>
-                            Save
-                        </Button>
+                    </Button>
+                        </div>
                     </CardBody>
                 </Card>
             </div>

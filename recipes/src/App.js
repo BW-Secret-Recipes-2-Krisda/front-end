@@ -35,9 +35,9 @@ function App() {
       <Route path='/savedrecipes'>
         <SavedRecipes />
       </Route>
-      {/* <Route path='/viewrecipe'>
-        <ViewRecipe title={formData.title} category={formData.category} ingredients={formData.ingredients} directions={formData.instructions} image={formData.img_url} />
-      </Route> */}
+      <Route path='/viewrecipe'>
+        <ViewRecipe />
+      </Route>
     </div>
   );
 }
