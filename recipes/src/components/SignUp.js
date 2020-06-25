@@ -11,7 +11,7 @@ import { signUp } from "../actions";
 
 
 const SignUp = () => {
-   
+
     const [collapsed, setCollapsed] = useState(true);
     const [post, setPost] = useState([]);
     const [serverError, setServerError] = useState('');
@@ -35,7 +35,7 @@ const SignUp = () => {
     // };
 
 
-     const signUp = e => {
+    const signUp = e => {
         e.preventDefault();
         const newUser = {
             username: this.state.username,
@@ -83,7 +83,7 @@ const SignUp = () => {
                 console.log('from catch', res)
             });
     };
-    
+
 
     return (
         <div style={{ background: '#ebcd4' }}>
@@ -97,13 +97,8 @@ const SignUp = () => {
                 <Collapse isOpen={!collapsed} navbar>
                     <Nav navbar>
                         <NavItem >
-                            <NavLink href="" style={{ color: 'white', fontWeight: 'bold' }}>
-                                Sign In
-                            </NavLink>
-                        </NavItem>
-                        <NavItem>
-                            <NavLink href="" style={{ color: 'white', fontWeight: 'bold' }}>
-                                Search Recipes
+                            <NavLink href="https://dazzling-davinci-a24bdd.netlify.app/" style={{ color: 'white', fontWeight: 'bold' }}>
+                                Landing Page
                             </NavLink>
                         </NavItem>
                     </Nav>
@@ -111,7 +106,7 @@ const SignUp = () => {
             </Navbar>
             <img style={{ width: '100%', height: '40vh' }} src={MarketingPage} alt='' />
             <Form style={{ width: '80%', margin: '0 auto', textAlign: 'center' }} onSubmit={submitData} >
-            {serverError ? <p className="error">{serverError}</p> : null}
+                {serverError ? <p className="error">{serverError}</p> : null}
                 <FormGroup>
                     <legend>Name</legend>
                     <Input style={{ border: '2px ridge #9e5110' }}
@@ -138,7 +133,7 @@ const SignUp = () => {
                         value={formData.password}
                         onChange={onInputChange} />
                 </FormGroup>
-                
+
                 {/* <div style={{ width: '30%', margin: '0 auto', border: '2px ridge #9e5110', background: '#b17537', color: 'white' }}>
                     <h5>Uncheck this box if you want your recipes to be searchable for others</h5>
                     <FormGroup tag='fieldset'>
@@ -163,12 +158,12 @@ const SignUp = () => {
 };
 
 const mapStateToProps = state => ({
-  signingUp: state.signingUp
+    signingUp: state.signingUp
 });
-
-export default withRouter(
-    connect(
-        mapStateToProps,
-        { signUp })
-    (SignUp)
-);
+export default SignUp;
+// export default withRouter(
+//     connect(
+//         mapStateToProps,
+//         { signUp })
+//     (SignUp)
+// );

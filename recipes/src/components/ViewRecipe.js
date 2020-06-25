@@ -10,7 +10,7 @@ import LogoGold from '../components/LogoGold.png';
 import vintageRecipeCardwithTabBlanked from '../components/vintageRecipeCardwithTabBlanked.png';
 import { Link } from 'react-router-dom';
 
-const ViewRecipe = () => {
+const ViewRecipe = (title, category, ingredients, instructions, image) => {
     const [collapsed, setCollapsed] = useState(true);
 
     const toggleNavbar = () => setCollapsed(!collapsed);
@@ -23,7 +23,7 @@ const ViewRecipe = () => {
                     <h1>
                         Secret Family Recipes
                     </h1>
-                    <h2 style={{ marginLeft: '23%' }}>**Recipe Title**</h2>
+                    <h2 style={{ marginLeft: '23%' }}>{title}</h2>
                 </NavbarBrand>
                 <NavbarToggler onClick={toggleNavbar} className='mr-2' style={{ background: '#ebcdb4' }} />
                 <Collapse isOpen={!collapsed} navbar>
@@ -49,21 +49,17 @@ const ViewRecipe = () => {
             <img style={{ width: '100%', height: '40vh' }} src={MarketingPage} />
             <div>
                 <Card style={{ background: '#b17537', border: '1px ridge #110906', width: '80%', margin: '0 auto' }}>
-                    <CardImg style={{ width: '20%', margin: '0 auto' }} src={vintageRecipeCardwithTabBlanked} alt="Card image cap" />
+                    <CardImg style={{ width: '20%', margin: '0 auto' }} src={image} alt="Card image cap" />
                     <CardBody style={{ textAlign: 'center', color: '#ebcdb4' }}>
-                        <CardTitle style={{ fontWeight: 'bold' }}>
-                            Description
-                        </CardTitle>
-                        <CardText>**This will be where the description will go**</CardText>
                         <CardTitle style={{ fontWeight: 'bold' }}>
                             Ingredients
                         </CardTitle>
-                        <CardText>**This will be where the ingredients show**
+                        <CardText>{ingredients}
                         </CardText>
                         <CardTitle style={{ fontWeight: 'bold' }}>
                             Directions
                         </CardTitle>
-                        <CardText>**This will be where the directions show**
+                        <CardText>{instructions}
                         </CardText>
                         <Link to='/newrecipeform'>
                             <Button style={{ background: '#ebcdb4', color: 'black', fontWeight: 'bold', border: '2px solid #43260f' }}>

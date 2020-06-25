@@ -10,9 +10,8 @@ const NewRecipes = () => {
     const [formData, setFormData] = useState({
         category: '',
         title: '',
-        description: '',
         ingredients: '',
-        directions: '',
+        instructions: '',
         private: true
     });
 
@@ -124,14 +123,14 @@ const NewRecipes = () => {
                         style={{ border: '2x ridge #b17537' }}
                         onChange={onInputChange} />
                 </FormGroup>
-                <FormGroup>
+                {/* <FormGroup>
                     <legend style={{ color: 'black', fontWeight: 'bold', marginBottom: '0' }}>Description</legend>
                     <Input style={{ border: '2x solid #43260f' }}
                         type='textarea'
                         name='description'
                         value={formData.description}
                         onChange={onInputChange} />
-                </FormGroup>
+                </FormGroup> */}
                 <FormGroup>
                     <legend style={{ color: 'black', fontWeight: 'bold', marginBottom: '0' }}>Ingredients</legend>
                     <Input style={{ border: '2x solid #b17537' }}
@@ -144,8 +143,8 @@ const NewRecipes = () => {
                     <legend style={{ color: 'black', fontWeight: 'bold', marginBottom: '0' }}>Directions</legend>
                     <Input style={{ border: '2x solid #b17537' }}
                         type='textarea'
-                        name='directions'
-                        value={formData.directions}
+                        name='instructions'
+                        value={formData.instructions}
                         onChange={onInputChange} />
                 </FormGroup>
                 {/* <FormGroup tag='fieldset'>
@@ -195,7 +194,7 @@ const NewRecipes = () => {
                 </FormGroup> */}
                 <div style={{ background: '#ebcdb4', border: '2px ridge #b17537', color: 'black', fontWeight: 'bold' }}>
                     <FormGroup tag='fieldset'>
-                        <legend>Uncheck the box below if you want this recipe to be searchable for the public</legend>
+                        <legend>Check the box below if you DO NOT want this recipe to be searchable for the public</legend>
                         <FormGroup check>
                             <Label check>
                                 <Input

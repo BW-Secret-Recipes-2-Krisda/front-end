@@ -5,12 +5,15 @@ import {
 } from 'reactstrap';
 import Axios from 'axios';
 
+
 import vintageRecipeCardwithTabBlanked from '../components/vintageRecipeCardwithTabBlanked.png';
 import MarketingPage from '../components/MarketingPage.png';
 import LogoGold from '../components/LogoGold.png';
 import { object } from 'yup';
+import ViewRecipe from './ViewRecipe';
 
 const SavedRecipes = () => {
+    const image1 = require('./vintageRecipeCardwithTabBlanked.png')
     const [collapsed, setCollapsed] = useState(true);
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const [formData, setFormData] = useState([]);
@@ -24,7 +27,10 @@ const SavedRecipes = () => {
             .then(res => {
                 console.log('from saved recipes', res);
                 setFormData(res.data)
-            });
+            })
+            .catch(err => {
+                console.log(err)
+            })
 
     }, []);
 
@@ -47,7 +53,7 @@ const SavedRecipes = () => {
                             </NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink href="" style={{ color: 'white', fontWeight: 'bold' }}>
+                            <NavLink href="/" style={{ color: 'white', fontWeight: 'bold' }}>
                                 Search Recipes
                             </NavLink>
                         </NavItem>
@@ -62,17 +68,16 @@ const SavedRecipes = () => {
                             <CardTitle ><h4>{object.title}</h4></CardTitle>
                             <CardSubtitle>{object.category}</CardSubtitle>
                         </CardBody>
-                        <img style={{ width: '30%', marginLeft: '35%' }} src={object.img_url === '' ? vintageRecipeCardwithTabBlanked : object.img_url} alt="" />
+                        <img style={{ width: '30%', marginLeft: '35%' }} src={object.img_url ? object.img_url : image1} alt="" />
                         <CardBody style={{ textAlign: 'center', color: '#ebcdb4' }}>
                             <CardText>{object.ingredients}</CardText>
-                            <CardLink style={{ color: '#ebcdb4', border: '1px ridge #110906 ' }} href="#">View</CardLink>
+                            <CardLink style={{ color: '#ebcdb4', border: '1px ridge #110906 ' }} href="/viewrecipe">View</CardLink>
                             <CardLink style={{ color: '#ebcdb4', border: '1px ridge #110906 ' }} href="/newrecipeform">Edit</CardLink>
                         </CardBody>
                     </Card>
                 })}
 
             </div>
-
         </>
     )
 };
