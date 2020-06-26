@@ -3,15 +3,16 @@ import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, Bu
 import axios from 'axios';
 import * as yup from 'yup';
 import MarketingPage from './MarketingPage.png';
+import LogoGold from './LogoGold.png';
 
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
-import { signUp } from "../actions";
+// import { connect } from 'react-redux';
+// import { withRouter } from 'react-router-dom';
+// import { signUp } from "../actions";
 
 
 
 const SignUp = () => {
-   
+
     const [collapsed, setCollapsed] = useState(true);
     const [post, setPost] = useState([]);
     const [serverError, setServerError] = useState('');
@@ -27,26 +28,20 @@ const SignUp = () => {
             [e.target.name]: e.target.value
         });
     };
-    // const handlepreferences = (e) => {
-    //     setFormData({
-    //         ...formData,
-    //         [e.target.name]: e.target.checked
+
+
+    // const signUp = e => {
+    //     e.preventDefault();
+    //     const newUser = {
+    //         username: this.state.username,
+    //         password: this.state.password1
+    //     };
+    //     this.props.signUp(newUser, this.props.history);
+    //     this.setState({
+    //         username: "",
+    //         password1: ""
     //     });
     // };
-
-
-     const signUp = e => {
-        e.preventDefault();
-        const newUser = {
-            username: this.state.username,
-            password: this.state.password1
-        };
-        this.props.signUp(newUser, this.props.history);
-        this.setState({
-            username: "",
-            password1: ""
-        });
-    };
 
     const signupSchema = yup.object().shape({
         name: yup.string().required('Please enter your legal name'),
@@ -83,11 +78,12 @@ const SignUp = () => {
                 console.log('from catch', res)
             });
     };
-    
+
 
     return (
         <div style={{ background: '#ebcd4' }}>
             <Navbar style={{ background: '#b17537', color: 'white' }} light>
+                <img style={{ width: '10%' }} src={LogoGold} alt='' />
                 <NavbarBrand href="/" style={{ color: 'white' }}>
                     <h1>
                         Secret Family Recipes Sign Up
@@ -97,13 +93,13 @@ const SignUp = () => {
                 <Collapse isOpen={!collapsed} navbar>
                     <Nav navbar>
                         <NavItem >
-                            <NavLink href="" style={{ color: 'white', fontWeight: 'bold' }}>
-                                Sign In
+                            <NavLink href="https://dazzling-davinci-a24bdd.netlify.app/" style={{ color: 'white', fontWeight: 'bold' }}>
+                                Landing Page
                             </NavLink>
                         </NavItem>
-                        <NavItem>
-                            <NavLink href="" style={{ color: 'white', fontWeight: 'bold' }}>
-                                Search Recipes
+                        <NavItem >
+                            <NavLink href="/login" style={{ color: 'white', fontWeight: 'bold' }}>
+                                Log In
                             </NavLink>
                         </NavItem>
                     </Nav>
@@ -111,7 +107,7 @@ const SignUp = () => {
             </Navbar>
             <img style={{ width: '100%', height: '40vh' }} src={MarketingPage} alt='' />
             <Form style={{ width: '80%', margin: '0 auto', textAlign: 'center' }} onSubmit={submitData} >
-            {serverError ? <p className="error">{serverError}</p> : null}
+                {serverError ? <p className="error">{serverError}</p> : null}
                 <FormGroup>
                     <legend>Name</legend>
                     <Input style={{ border: '2px ridge #9e5110' }}
@@ -138,7 +134,7 @@ const SignUp = () => {
                         value={formData.password}
                         onChange={onInputChange} />
                 </FormGroup>
-                
+
                 {/* <div style={{ width: '30%', margin: '0 auto', border: '2px ridge #9e5110', background: '#b17537', color: 'white' }}>
                     <h5>Uncheck this box if you want your recipes to be searchable for others</h5>
                     <FormGroup tag='fieldset'>
@@ -162,13 +158,13 @@ const SignUp = () => {
     )
 };
 
-const mapStateToProps = state => ({
-  signingUp: state.signingUp
-});
-
-export default withRouter(
-    connect(
-        mapStateToProps,
-        { signUp })
-    (SignUp)
-);
+// const mapStateToProps = state => ({
+//     signingUp: state.signingUp
+// });
+export default SignUp;
+// export default withRouter(
+//     connect(
+//         mapStateToProps,
+//         { signUp })
+//     (SignUp)
+// );
