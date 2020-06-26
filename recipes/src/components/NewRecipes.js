@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Form, FormGroup, Label, Input, Button } from 'reactstrap';
 
 import VintageRecipeCardwithTab from '../components/VintageRecipeCardwithTab.png';
-import Axios from 'axios';
+// import Axios from 'axios';
 
 const NewRecipes = () => {
     const [collapsed, setCollapsed] = useState(true);

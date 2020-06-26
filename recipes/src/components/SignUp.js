@@ -5,9 +5,9 @@ import * as yup from 'yup';
 import MarketingPage from './MarketingPage.png';
 import LogoGold from './LogoGold.png';
 
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
-import { signUp } from "../actions";
+// import { connect } from 'react-redux';
+// import { withRouter } from 'react-router-dom';
+// import { signUp } from "../actions";
 
 
 
@@ -28,26 +28,20 @@ const SignUp = () => {
             [e.target.name]: e.target.value
         });
     };
-    // const handlepreferences = (e) => {
-    //     setFormData({
-    //         ...formData,
-    //         [e.target.name]: e.target.checked
+
+
+    // const signUp = e => {
+    //     e.preventDefault();
+    //     const newUser = {
+    //         username: this.state.username,
+    //         password: this.state.password1
+    //     };
+    //     this.props.signUp(newUser, this.props.history);
+    //     this.setState({
+    //         username: "",
+    //         password1: ""
     //     });
     // };
-
-
-    const signUp = e => {
-        e.preventDefault();
-        const newUser = {
-            username: this.state.username,
-            password: this.state.password1
-        };
-        this.props.signUp(newUser, this.props.history);
-        this.setState({
-            username: "",
-            password1: ""
-        });
-    };
 
     const signupSchema = yup.object().shape({
         name: yup.string().required('Please enter your legal name'),
@@ -164,9 +158,9 @@ const SignUp = () => {
     )
 };
 
-const mapStateToProps = state => ({
-    signingUp: state.signingUp
-});
+// const mapStateToProps = state => ({
+//     signingUp: state.signingUp
+// });
 export default SignUp;
 // export default withRouter(
 //     connect(

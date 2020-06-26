@@ -1,14 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
-    Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, Button, Card, CardImg, CardText, CardBody, CardLink,
-    CardTitle, CardSubtitle
+    Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink,
+    Button, Card, CardText, CardBody, CardTitle, CardSubtitle
 } from 'reactstrap';
-import Axios from 'axios';
+// import Axios from 'axios';
 
 import MarketingPage from '../components/MarketingPage.png';
 import LogoGold from '../components/LogoGold.png';
-import vintageRecipeCardwithTabBlanked from '../components/vintageRecipeCardwithTabBlanked.png';
-import { Link } from 'react-router-dom';
 
 const ViewRecipe = (title, category, ingredients, instructions, image) => {
     const [collapsed, setCollapsed] = useState(true);
@@ -46,7 +44,7 @@ const ViewRecipe = (title, category, ingredients, instructions, image) => {
                     </Nav>
                 </Collapse>
             </Navbar>
-            <img style={{ width: '100%', height: '40vh' }} src={MarketingPage} />
+            <img style={{ width: '100%', height: '40vh' }} src={MarketingPage} alt='grandmas kitchen inspired baking table with open recipe notebook, wooden spoon, and glass bowls with ingredients inside' />
             <div>
                 <Card style={{ margin: '3%', border: 'none' }}>
                     <CardBody style={{

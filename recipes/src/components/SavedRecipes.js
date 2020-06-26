@@ -1,24 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import {
-    Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, Button, Card, CardImg, CardText, CardBody, CardLink,
+    Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, Card, CardText, CardBody, CardLink,
     CardTitle, CardSubtitle
 } from 'reactstrap';
 import Axios from 'axios';
 
-
-import vintageRecipeCardwithTabBlanked from '../components/vintageRecipeCardwithTabBlanked.png';
 import MarketingPage from '../components/MarketingPage.png';
 import LogoGold from '../components/LogoGold.png';
-import { object } from 'yup';
-import ViewRecipe from './ViewRecipe';
+
 
 const SavedRecipes = () => {
     const image1 = require('./vintageRecipeCardwithTabBlanked.png')
     const [collapsed, setCollapsed] = useState(true);
-    const [dropdownOpen, setDropdownOpen] = useState(false);
     const [formData, setFormData] = useState([]);
-
-    const toggle = () => setDropdownOpen(prevState => !prevState);
 
     const toggleNavbar = () => setCollapsed(!collapsed);
 
@@ -65,7 +59,7 @@ const SavedRecipes = () => {
                     </Nav>
                 </Collapse>
             </Navbar>
-            <img style={{ width: '100%', height: '40vh' }} src={MarketingPage} />
+            <img style={{ width: '100%', height: '40vh' }} src={MarketingPage} alt='grandmas kitchen inspired baking table with open recipe notebook, wooden spoon, and glass bowls with ingredients inside' />
             <div style={{ display: 'flex', justifyContent: 'space-evenly', flexWrap: 'wrap' }}>
                 {formData.map(object => {
                     return <Card style={{ width: '20%', margin: '2%', background: '#b17537', border: '1px ridge #110906 ' }}>
