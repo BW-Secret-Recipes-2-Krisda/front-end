@@ -61,8 +61,8 @@ const SavedRecipes = () => {
             </Navbar>
             <img style={{ width: '100%', height: '40vh' }} src={MarketingPage} alt='grandmas kitchen inspired baking table with open recipe notebook, wooden spoon, and glass bowls with ingredients inside' />
             <div style={{ display: 'flex', justifyContent: 'space-evenly', flexWrap: 'wrap' }}>
-                {formData.map(object => {
-                    return <Card style={{ width: '20%', margin: '2%', background: '#b17537', border: '1px ridge #110906 ' }}>
+                {formData.map((object, index) => {
+                    return <Card key={index} style={{ width: '20%', margin: '2%', background: '#b17537', border: '1px ridge #110906 ' }}>
                         <CardBody style={{ textAlign: 'center', color: '#ebcdb4' }}>
                             <CardTitle ><h4>{object.title}</h4></CardTitle>
                             <CardSubtitle>{object.category}</CardSubtitle>
