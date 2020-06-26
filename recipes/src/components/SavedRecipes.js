@@ -53,8 +53,13 @@ const SavedRecipes = () => {
                             </NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink href="/" style={{ color: 'white', fontWeight: 'bold' }}>
+                            <NavLink href="/homepage" style={{ color: 'white', fontWeight: 'bold' }}>
                                 Search Recipes
+                            </NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink href="/login" style={{ color: 'white', fontWeight: 'bold' }}>
+                                Log In
                             </NavLink>
                         </NavItem>
                     </Nav>

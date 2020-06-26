@@ -34,7 +34,7 @@ const ViewRecipe = (title, category, ingredients, instructions, image) => {
                             </NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink href="" style={{ color: '#ebcdb4', fontWeight: 'bold' }}>
+                            <NavLink href="/homepage" style={{ color: '#ebcdb4', fontWeight: 'bold' }}>
                                 Search Recipes
                             </NavLink>
                         </NavItem>

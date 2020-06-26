@@ -52,6 +52,9 @@ const NewRecipes = () => {
                         <NavItem>
                             <NavLink style={{ color: 'black', fontWeight: 'bold' }} href="/savedRecipes">Saved Recipes</NavLink>
                         </NavItem>
+                        <NavItem>
+                            <NavLink style={{ color: 'black', fontWeight: 'bold' }} href="/login">Log In</NavLink>
+                        </NavItem>
                     </Nav>
                 </Collapse>
             </Navbar>

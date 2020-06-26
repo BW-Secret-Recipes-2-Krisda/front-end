@@ -103,6 +103,11 @@ const SignUp = () => {
                                 Landing Page
                             </NavLink>
                         </NavItem>
+                        <NavItem >
+                            <NavLink href="/login" style={{ color: 'white', fontWeight: 'bold' }}>
+                                Log In
+                            </NavLink>
+                        </NavItem>
                     </Nav>
                 </Collapse>
             </Navbar>
