@@ -17,7 +17,7 @@ const ViewRecipe = (title, category, ingredients, instructions, image) => {
 
     return (
         <>
-            <Navbar style={{ background: '#b17537', color: '#ebcdb4' }} light>
+            <Navbar style={{ background: '#b17537', color: '#ebcdb4' }} light >
                 <img style={{ width: '10%' }} src={LogoGold} alt='' />
                 <NavbarBrand href="/" style={{ color: 'white' }}>
                     <h1>
@@ -48,10 +48,10 @@ const ViewRecipe = (title, category, ingredients, instructions, image) => {
             </Navbar>
             <img style={{ width: '100%', height: '40vh' }} src={MarketingPage} />
             <div>
-                <Card style={{ margin: '3%' }}>
+                <Card style={{ margin: '3%', border: 'none' }}>
                     <CardBody style={{
                         width: '80%', height: '100vh', margin: '0 auto', display: 'flex', flexDirection: 'column', textAlign: 'center',
-                        backgroundImage: "radial-gradient( #b17537 50%,  #ebcdb4 90%)", backgroundPosition: '50%', border: '5px ridge #9e5110', color: '#ebcdb4', textShadow: '2px 2px #9e5110'
+                        backgroundImage: "radial-gradient( #b17537 50%,  #ebcdb4 99%)", backgroundPosition: 'center', border: '5px ridge #9e5110', color: 'white', textShadow: '2px 2px #9e5110'
                     }}>
                         <div style={{ marginLeft: '0 auto' }}>
                             <CardTitle>
@@ -68,28 +68,26 @@ const ViewRecipe = (title, category, ingredients, instructions, image) => {
                                 <h5 style={{ margin: '0' }}>
                                     Ingredients
                         </h5>
-                                <ol style={{ padding: '0' }}>
-                                    <ul style={{ padding: '0' }}>
-                                        Stuff
-                            </ul>
-                                    <ul style={{ padding: '0' }}>
-                                        Stuff
-                            </ul>
-                                    <ul style={{ padding: '0' }}>
-                                        Stuff
-                            </ul>
-                                    <ul style={{ padding: '0' }}>
-                                        Stuff
-                            </ul>
-
-                                </ol>
+                                <p style={{ fontSize: '1.2rem' }}>
+                                    1 cup butter, softened
+                                    1 cup white sugar
+                                    1 cup packed brown sugar
+                                    2 eggs
+                                    2 teaspoons vanilla extract
+                                    1 teaspoon baking soda
+                                    2 teaspoons hot water
+                                    ½ teaspoon salt
+                                    3 cups all-purpose flour
+                                    2 cups semisweet chocolate chips
+                                    1 cup chopped walnuts
+                                </p>
 
                             </CardText>
                             <CardText>
                                 <h5>
                                     Directions
                                 </h5>
-                                <p>
+                                <p style={{ fontSize: '1.2rem' }}>
                                     ***STEP 1***<br />
                                 Preheat oven to 350 degrees F (175 degrees C).<br />
 

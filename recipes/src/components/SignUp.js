@@ -3,6 +3,7 @@ import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, Bu
 import axios from 'axios';
 import * as yup from 'yup';
 import MarketingPage from './MarketingPage.png';
+import LogoGold from './LogoGold.png';
 
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
@@ -88,6 +89,7 @@ const SignUp = () => {
     return (
         <div style={{ background: '#ebcd4' }}>
             <Navbar style={{ background: '#b17537', color: 'white' }} light>
+                <img style={{ width: '10%' }} src={LogoGold} alt='' />
                 <NavbarBrand href="/" style={{ color: 'white' }}>
                     <h1>
                         Secret Family Recipes Sign Up
