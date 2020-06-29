@@ -1,4 +1,6 @@
 //import axios from 'axios';
+// https://documenter.getpostman.com/view/10547327/Szzn6cFg?version=latest
+
 import { axiosAuth } from '../auth/axiosAuth'
 
 export const LOGIN_START = 'LOGIN_START';
@@ -30,6 +32,9 @@ export const LOGIN_FAILURE = 'LOGIN_FAILURE';
 //  dispatch({ type: LOGOUT });
 //  localStorage.clear();
 //};
+//////////////////////////////////////////////////////////
+
+//Ok, lets try this way >:O
 
 const headers = {
   'Content-Type' : 'application/json',

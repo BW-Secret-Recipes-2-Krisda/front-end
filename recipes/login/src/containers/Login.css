@@ -16,7 +16,16 @@
       padding: 10px 0;
       max-width: 800px;
     }
-  
+
+    input{
+      transition: 0.3s;
+    }
+    
+    input:hover{
+      background-color: #80481a63;
+      color: white;
+    }
+
     div {
       display: flex;
       flex-flow: column;
@@ -37,6 +46,7 @@
       top: 0;
       text-shadow: 0 0 4px #43260f;  color: transparent;
       margin-left: 5px;
+      transition: 0.3s;
     }
     #FG{
       font-size: 3rem;
@@ -56,9 +66,11 @@
     button {
       align-self:center;
       border: 2px solid #9e5110;
+      transition: 0.3s;
     }
     button:hover{
           background: #110906;
-          color: #d29c60;
+          color: white;
+          border: 2px solid #43260f;
     }
   }
